@@ -91,5 +91,10 @@
       <artifactId>scala-library</artifactId>
       <version>${scala-version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.lihaoyi</groupId>
+      <artifactId>ammonite-ops_2.11</artifactId>
+      <version>${amm.version}</version>
+    </dependency>
   </dependencies>
 </project>
