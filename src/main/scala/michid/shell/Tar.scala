@@ -16,11 +16,32 @@
  */
 package michid.shell
 
-/**
- * Main class for an interactive Scala shell including all Oak dependencies
- */
-object Main {
-  def main(args: Array[String]) {
-    ammonite.repl.Main.main(args)
+import java.io.{FileInputStream, BufferedInputStream}
+import java.util.Date
+
+import ammonite.ops._
+import org.kamranzafar.jtar.TarInputStream
+
+case class TarEntry(size: Long, date: Date, name: String)
+
+class Tar(path: Path) extends Iterator[TarEntry] with java.io.Closeable {
+  val tar = new TarInputStream(new BufferedInputStream(new FileInputStream(path.toString())))
+
+  var e = tar.getNextEntry
+  override def hasNext: Boolean = e != null
+  override def next(): TarEntry = {
+    val n = e
+    e = tar.getNextEntry
+    if (n == null) {
+      close()
+    }
+    TarEntry(n.getSize, n.getModTime, n.getName)
   }
+
+  override def close(): Unit = tar.close()
+}
+
+object Tar {
+  def apply(path: Path): Tar = new Tar(path)
+  def apply(path: String): Tar = Tar(Path(path))
 }
