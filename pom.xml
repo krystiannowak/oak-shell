@@ -31,7 +31,7 @@
 
   <properties>
     <oak.version>1.3.13</oak.version>
-    <amm.version>0.5.2</amm.version>
+    <amm.version>0.5.3</amm.version>
     <scala-version>2.11.7</scala-version>
   </properties>
 
