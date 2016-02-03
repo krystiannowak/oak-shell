@@ -27,7 +27,7 @@
   <groupId>michid</groupId>
   <artifactId>oak-shell</artifactId>
   <name>Oak Shell</name>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
 
   <properties>
     <oak.version>1.3.13</oak.version>

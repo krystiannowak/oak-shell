@@ -1,3 +1,5 @@
+*NOTE*: This project is mostly superseded by [script-oak](https://github.com/mduerig/script-oak)
+
 This is the [Ammonite-REPL](https://lihaoyi.github.io/Ammonite/) with
 [Jackrabbit Oak](http://jackrabbit.apache.org/oak/) dependencies embedded in
 a single executable jar.
